@@ -1,0 +1,10 @@
+{
+  "name": "groceryweek3",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

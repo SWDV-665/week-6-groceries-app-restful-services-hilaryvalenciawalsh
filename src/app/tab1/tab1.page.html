@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="no-item">{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{title}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-list>
+    <ion-item-sliding id="item100" *ngFor= "let item of loadItems(); let i=index">
+      <ion-item href="#">
+        <ion-label>
+          <h2>{{item.name}}</h2>
+          <p>Qty: {{item.quantity}}</p>
+        </ion-label>
+        <ion-note slot="end">
+          ${{item.price | number: ''}}/
+        </ion-note>
+      </ion-item>
+      <ion-item-options>
+        <button (click)="editItem(item, i)" ion-button color="primary" icon-start>
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+
+        <button (click)="removeItem(item, i)" ion-button color="secondary" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Removal
+        </button>
+
+        <button (click)="shareItem(item, i)" ion-button color="light" icon-start>
+          <ion-icon name="share"></ion-icon>
+          Share
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom"  slot="fixed">
+    <ion-fab-button (click)="addItem(item)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>
